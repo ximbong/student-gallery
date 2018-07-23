@@ -1,0 +1,36 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border: solid 5px;
+  border-image: linear-gradient(to bottom, #ffb600 0%, #000000 100%) 1;
+  cursor: pointer;
+  position: relative;
+}
+
+.item > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  color: white;
+  background: #9f7100;
+  z-index: 3;
+  transition: 1s;
+  padding: 10px;
+  text-align: center;
+}
+
+.item:hover .caption {
+  opacity: 1;
+}
