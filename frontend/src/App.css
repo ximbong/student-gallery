@@ -1,0 +1,13 @@
+:root {
+  --side-padding: 10%;
+}
+
+#root {
+  padding: 20px var(--side-padding);
+}
+
+.itemList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
