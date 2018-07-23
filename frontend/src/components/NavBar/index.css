@@ -1,0 +1,10 @@
+.navBar {
+  display: flex;
+  height: 100px;
+  margin-bottom: 40px;
+}
+
+.navBar img {
+  height: 100px;
+  width: auto;
+}
