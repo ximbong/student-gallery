@@ -1,14 +1,12 @@
 .item {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
   position: relative;
-  overflow: hidden;
   border: solid 5px;
   border-image: linear-gradient(to bottom, #ffb600 0%, #000000 100%) 1;
   cursor: pointer;
-  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .item > img {

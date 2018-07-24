@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import importAll from "../../handler";
 import defaultImage from "../../assets/integrify-cartoon.png";
@@ -15,10 +16,12 @@ const Item = props => {
   const fullName = firstName + lastName;
 
   return (
-    <div className="item">
-      <img src={src ? images[src] : defaultImage} alt={alt} />
-      <div className="caption">{fullName}</div>
-    </div>
+    <Link to={`/view/${fullName}`}>
+      <div className="item">
+        <img src={src ? images[src] : defaultImage} alt={alt} />
+        <div className="caption">{fullName}</div>
+      </div>
+    </Link>
   );
 };
 
