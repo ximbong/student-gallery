@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Item from "./components/Item";
 import NavBar from "./components/NavBar";
 import Displayer from "./components/Displayer";
+import StudentForm from "./components/StudentForm";
 
 import "./App.css";
 
@@ -42,8 +43,11 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/" component={NavBar} />
+          <Route path="/" render={props => <NavBar {...props} />} />
           <Route path="/" exact={true} render={() => ItemList} />
+
+          <Route path="/new" component={StudentForm} />
+
           <Route
             path="/view/:name"
             render={props => (
