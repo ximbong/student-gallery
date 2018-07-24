@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Route } from "react-router";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Item from "./components/Item";
 import NavBar from "./components/NavBar";
@@ -25,7 +25,9 @@ class App extends Component {
       );
   };
   getDataFromName = name => {
-    return this.state.data.find(e => {
+    const data = this.state.data;
+
+    return data.find(e => {
       const fullName = e.firstName + e.lastName;
       return name === fullName;
     });
@@ -34,18 +36,14 @@ class App extends Component {
   render() {
     const data = this.state.data;
 
-    const ItemList = data.map((e, i) => <Item data={e} key={i} />);
+    const ItemArray = data.map((e, i) => <Item data={e} key={i} />);
+    const ItemList = <div className="itemList">{ItemArray}</div>;
 
     return (
       <Router>
         <div>
           <Route path="/" component={NavBar} />
-          <Route
-            path="/"
-            render={() => {
-              return <div className="itemList">{ItemList}</div>;
-            }}
-          />
+          <Route path="/" exact={true} render={() => ItemList} />
           <Route
             path="/view/:name"
             render={props => (
