@@ -1,12 +1,19 @@
 const express = require("express"),
   mongoose = require("mongoose"),
-  mongoDB = "mongodb://127.0.0.1/student-gallery";
+  multer = require("multer"),
+  Student = require("./models/student"),
+  mongoDB = "mongodb://127.0.0.1/student-gallery",
+  app = express();
 
-const { getData } = require("./data");
-const app = express();
-const data = getData();
+const uploadRoutes = require("./routes/new");
+
 mongoose.connect(mongoDB);
 
+//temporary data
+const { getData } = require("./data");
+const data = getData();
+
+//config header
 app.use(function(req, res, next) {
   if (req.headers.origin) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -19,6 +26,9 @@ app.use(function(req, res, next) {
   }
   next();
 });
+
+//routes
+app.use("/new", uploadRoutes);
 
 app.get("/", (req, res) => {
   res.json(data);
