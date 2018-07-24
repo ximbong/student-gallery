@@ -1,5 +1,7 @@
 .navBar {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 100px;
   margin-bottom: 40px;
 }
@@ -7,4 +9,21 @@
 .navBar img {
   height: 100px;
   width: auto;
+}
+
+.navBar button {
+  padding: 10px 20px;
+  font-size: 110%;
+  background: white;
+  border: 2px solid #383838;
+  transition: 0.3s;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.navBar button:hover {
+  border: 2px solid #f3b312;
+  background: #383838;
+  color: white;
 }
