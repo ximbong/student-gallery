@@ -11,12 +11,13 @@ class StudentForm extends Component {
       title: "",
       nationality: "",
       skills: "",
-      src: null,
+      image: null,
       whySofterDeveloper: "",
       longTermVision: "",
       motivatesMe: "",
       favoriteQuote: "",
-      joinedOn: ""
+      joinedOn: "",
+      imagePreviewer: null
     };
   }
 
@@ -24,10 +25,14 @@ class StudentForm extends Component {
     if (event.target.files && event.target.files[0]) {
       let reader = new FileReader();
       reader.onload = e => {
-        this.setState({ src: e.target.result });
+        this.setState({ imagePreviewer: e.target.result });
       };
       reader.readAsDataURL(event.target.files[0]);
     }
+  };
+
+  fileChangedHandler = event => {
+    this.setState({ image: event.target.files[0] });
   };
 
   handle = (event, name) => {
@@ -60,12 +65,12 @@ class StudentForm extends Component {
       title,
       nationality,
       skills,
-      src,
       whySofterDeveloper,
       longTermVision,
       motivatesMe,
       favoriteQuote,
-      joinedOn
+      joinedOn,
+      imagePreviewer
     } = this.state;
 
     return (
@@ -205,8 +210,14 @@ class StudentForm extends Component {
 
           <div className="imageField">
             <label>Upload an image</label>
-            <input type="file" onChange={this.imagePreviewer} />
-            <img id="target" src={src} alt="" />
+            <input
+              type="file"
+              onChange={e => {
+                this.fileChangedHandler(e);
+                this.imagePreviewer(e);
+              }}
+            />
+            <img id="target" src={imagePreviewer} alt="" />
           </div>
         </div>
 
