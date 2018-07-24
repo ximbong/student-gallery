@@ -45,7 +45,7 @@ class Displayer extends Component {
     } =
       personData || {};
 
-    const toggleInfo = showImage
+    const toggleInfo = !showImage
       ? "Click here to show info"
       : "Click here to show image";
 
