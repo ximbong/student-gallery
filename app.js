@@ -9,9 +9,14 @@ const uploadRoutes = require("./routes/new");
 
 mongoose.connect(mongoDB);
 
-//temporary data
-const { getData } = require("./data");
-const data = getData();
+//initial data
+// Student.collection.insert(data, function(err, docs) {
+//   if (err) {
+//     return console.error(err);
+//   } else {
+//     console.log("Multiple documents inserted to Collection");
+//   }
+// });
 
 //config header
 app.use(function(req, res, next) {
@@ -31,7 +36,9 @@ app.use(function(req, res, next) {
 app.use("/new", uploadRoutes);
 
 app.get("/", (req, res) => {
-  res.json(data);
+  Student.find({}, (err, students) => {
+    res.json(students);
+  });
 });
 
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
