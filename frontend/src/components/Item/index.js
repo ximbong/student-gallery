@@ -7,7 +7,11 @@ import defaultImage from "../../assets/integrify-cartoon.png";
 import "./index.css";
 
 const images = importAll(
-  require.context("../../../../src/assets/img-small", false, /.jpg/)
+  require.context(
+    "../../../../src/assets/img-small",
+    false,
+    /\.(png|jpe?g|svg)$/
+  )
 );
 
 const Item = props => {
