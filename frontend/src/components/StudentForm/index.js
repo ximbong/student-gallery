@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 import "./index.css";
 
@@ -17,7 +18,8 @@ class StudentForm extends Component {
       motivatesMe: "",
       favoriteQuote: "",
       joinedOn: "",
-      imagePreviewer: null
+      imagePreviewer: null,
+      redirect: false
     };
   }
 
@@ -44,7 +46,7 @@ class StudentForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    const data = this.state;
+    const { skills, redirect, ...data } = this.state;
     const url = "http://localhost:3000/new";
 
     const formData = new FormData();
@@ -52,9 +54,19 @@ class StudentForm extends Component {
       formData.append(name, data[name]);
     }
 
+    const skillsArray = JSON.stringify(skills.split(","));
+
+    formData.append("skills", skillsArray);
+
     fetch(url, {
       method: "POST",
       body: formData
+    }).then(res => {
+      if (res.status === 200) {
+        this.setState({
+          redirect: true
+        });
+      }
     });
   };
 
@@ -70,11 +82,13 @@ class StudentForm extends Component {
       motivatesMe,
       favoriteQuote,
       joinedOn,
-      imagePreviewer
+      imagePreviewer,
+      redirect
     } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
+        {redirect && <Redirect to="/" />}
         <div className="form">
           <div className="textFields">
             <div className="input-effect">
