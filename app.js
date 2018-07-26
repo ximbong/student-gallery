@@ -2,6 +2,7 @@ const express = require("express"),
   mongoose = require("mongoose"),
   multer = require("multer"),
   Student = require("./models/student"),
+  path = require("path"),
   mongoDB = "mongodb://127.0.0.1/student-gallery",
   app = express();
 
@@ -9,7 +10,9 @@ const uploadRoutes = require("./routes/new");
 
 mongoose.connect(mongoDB);
 
-//initial data
+// Initialize data
+// const { getData } = require("./data");
+// const data = getData();
 // Student.collection.insert(data, function(err, docs) {
 //   if (err) {
 //     return console.error(err);
@@ -18,24 +21,23 @@ mongoose.connect(mongoDB);
 //   }
 // });
 
-//config header
-app.use(function(req, res, next) {
-  if (req.headers.origin) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header(
-      "Access-Control-Allow-Headers",
-      "X-Requested-With,Content-Type,Authorization"
-    );
-    res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
-    if (req.method === "OPTIONS") return res.send(200);
-  }
-  next();
-});
+// In development
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
-//routes
+// In production
+app.use(express.static(path.join(__dirname, "./frontend/build")));
+
+// Config Routes
 app.use("/new", uploadRoutes);
 
-app.get("/", (req, res) => {
+app.get("/data", (req, res) => {
   Student.find({}, (err, students) => {
     res.json(students);
   });
