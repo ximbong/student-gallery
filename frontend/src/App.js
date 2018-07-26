@@ -16,7 +16,7 @@ class App extends Component {
     };
   }
   componentDidMount = () => {
-    const baseUrl = "http://localhost:3000";
+    const baseUrl = "http://localhost:3000/data";
     fetch(baseUrl)
       .then(res => res.json())
       .then(res =>
