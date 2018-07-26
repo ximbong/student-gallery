@@ -6,11 +6,7 @@ import defaultImage from "../../assets/integrify-cartoon.png";
 import "./index.css";
 
 const images = importAll(
-  require.context(
-    "../../../../src/assets/img-small",
-    false,
-    /\.(png|jpe?g|svg)$/
-  )
+  require.context("../../../../src/assets/img", false, /\.(png|jpe?g|svg)$/)
 );
 
 class Displayer extends Component {
