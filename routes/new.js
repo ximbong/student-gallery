@@ -1,28 +1,12 @@
 const express = require("express"),
   router = express.Router(),
   multer = require("multer"),
+  cloudinary = require("cloudinary"),
   Student = require("../models/student");
 
-function getFileExtension(string) {
-  const nameArray = string.split(".");
-  return nameArray[nameArray.length - 1];
-}
+//cloudinary config here
 
-//config multer
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, "src/assets/img-small");
-  },
-  filename: function(req, file, cb) {
-    const { firstName, lastName } = req.body;
-
-    const fileID = firstName + lastName;
-    const fileExtension = getFileExtension(file.originalname);
-    cb(null, `${fileID}.${fileExtension}`);
-  }
-});
-
-const upload = multer({ storage });
+const upload = multer({ dest: "../public/uploads" });
 
 //handle post
 router.post("/", upload.single("image"), (req, res) => {
@@ -39,38 +23,67 @@ router.post("/", upload.single("image"), (req, res) => {
     joinedOn
   } = req.body;
 
+  const skillsArray = JSON.parse(skills);
+
   let src = "";
   let alt = "";
 
   if (req.file) {
-    const fileExtension = getFileExtension(req.file.originalname);
     //handle image name and alt
-    src = `${firstName}${lastName}.${fileExtension}`;
+    imageName = `${firstName}${lastName}`;
     alt = firstName;
+
+    cloudinary.v2.uploader.upload(
+      req.file.path,
+      { public_id: imageName },
+      function(error, result) {
+        src = result.url;
+
+        const student = {
+          firstName,
+          lastName,
+          title,
+          nationality,
+          skills: skillsArray,
+          whySofterDeveloper,
+          longTermVision,
+          motivatesMe,
+          favoriteQuote,
+          joinedOn,
+          src,
+          alt
+        };
+
+        const newStudent = new Student(student);
+        newStudent.save(function(err, student) {
+          if (err) return console.error(err);
+          res.sendStatus(200);
+        });
+      }
+    );
+  } else {
+    //this code needs to be imporoved
+    const student = {
+      firstName,
+      lastName,
+      title,
+      nationality,
+      skills: skillsArray,
+      whySofterDeveloper,
+      longTermVision,
+      motivatesMe,
+      favoriteQuote,
+      joinedOn,
+      src,
+      alt
+    };
+
+    const newStudent = new Student(student);
+    newStudent.save(function(err, student) {
+      if (err) return console.error(err);
+      res.sendStatus(200);
+    });
   }
-
-  const skillsArray = JSON.parse(skills);
-
-  const student = {
-    firstName,
-    lastName,
-    title,
-    nationality,
-    skills: skillsArray,
-    whySofterDeveloper,
-    longTermVision,
-    motivatesMe,
-    favoriteQuote,
-    joinedOn,
-    src,
-    alt
-  };
-
-  const newStudent = new Student(student);
-  newStudent.save(function(err, student) {
-    if (err) return console.error(err);
-    res.sendStatus(200);
-  });
 });
 
 module.exports = router;
