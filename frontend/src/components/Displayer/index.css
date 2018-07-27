@@ -10,10 +10,11 @@
   width: 500px;
   object-fit: cover;
   border-radius: 5px;
+  border: 2px solid #e5e6e8;
 }
 
 .showImage {
-  margin-top: 15px;
+  margin-top: 35px;
 }
 
 .showImage:hover {
