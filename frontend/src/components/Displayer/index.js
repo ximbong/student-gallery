@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 
-import importAll from "../../handler";
 import defaultImage from "../../assets/integrify-cartoon.png";
 
 import "./index.css";
-
-const images = importAll(
-  require.context("../../../../src/assets/img", false, /\.(png|jpe?g|svg)$/)
-);
 
 class Displayer extends Component {
   constructor(props) {
@@ -60,7 +55,7 @@ class Displayer extends Component {
     const Details = (
       <div className="details">
         <div className="name">
-          Name:
+          Name:{" "}
           <span>
             {firstName} {lastName}
           </span>
@@ -94,7 +89,7 @@ class Displayer extends Component {
     return (
       <div className="displayer">
         {!showImage ? (
-          <img src={src ? images[src] : defaultImage} alt={alt} />
+          <img src={src ? src : defaultImage} alt={alt} />
         ) : (
           Details
         )}
