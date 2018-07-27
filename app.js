@@ -10,7 +10,7 @@ const uploadRoutes = require("./routes/new");
 
 mongoose.connect(mongoDB);
 
-// Initialize data
+// //Initialize data
 // const { getData } = require("./data");
 // const data = getData();
 // Student.collection.insert(data, function(err, docs) {
@@ -22,14 +22,14 @@ mongoose.connect(mongoDB);
 // });
 
 // In development
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content-Type, Accept"
-//   );
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 // In production
 app.use(express.static(path.join(__dirname, "./frontend/build")));

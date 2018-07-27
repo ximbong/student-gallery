@@ -4,7 +4,8 @@ const data = [
     lastName: "",
     title: "Junior Developer",
     nationality: "",
-    src: "Rasbin.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Rasbin.jpg",
     alt: "Rasbin",
     skills: [
       "HTML",
@@ -27,7 +28,8 @@ const data = [
     lastName: "Gyawali",
     Title: "Trainee",
     nationality: "Nepalese",
-    src: "Aditya.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677597/Aditya.jpg",
     alt: "Aditya",
     skills: ["HTML", "CSS", "Bootstrap", "JavaScript", "JQuery", "React"],
     whySofterDeveloper:
@@ -42,7 +44,8 @@ const data = [
     lastName: "Maljici",
     title: "Junior Javascript Developer ",
     nationality: "Serbian",
-    src: "Senad.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Senad.jpg",
     alt: "Senad",
     skills: ["HTML5", "CSS3", "Javascript", "PHP", "SQL"],
     whySofterDeveloper: "Making money while having fun",
@@ -75,7 +78,8 @@ const data = [
     lastName: "Shrestha",
     title: "Junior Developer",
     nationality: "Nepali",
-    src: "Sanjog.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Sanjog.jpg",
     alt: "Sanjog",
     skills: ["HTML", "CSS", "JavaScript", "React", "Redux"],
     whySofterDeveloper: "Interest",
@@ -103,7 +107,8 @@ const data = [
     lastName: "Mansoor",
     title: "Junior web developer",
     nationality: "Iraq",
-    src: "Mohammed.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Mohammed.jpg",
     alt: "Mohammed Mansoor",
     skills: [
       "HTML",
@@ -127,7 +132,8 @@ const data = [
     lastName: "Vo",
     title: "Junior Web Developer",
     nationality: "Vietnamese",
-    src: "Anh.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677597/Anh.jpg",
     alt: "Anh Vo",
     skills: [
       "Javascript",
@@ -156,7 +162,8 @@ const data = [
     lastName: "Mahmud",
     title: "Aspiring full stack developer",
     nationality: "Bangladeshi",
-    src: "Tareq.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Tareq.jpg",
     alt: "Tareq",
     skills: [
       "Javascript",
@@ -180,7 +187,8 @@ const data = [
     lastName: "Ali",
     title: "",
     Nationality: "Somali",
-    src: "Abdirahman.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677597/Abdirahman.jpg",
     alt: "Abdirahman",
     skills: ["HTML", "CSS", "Javascript", "Jqeury", "React"],
     whySofterDeveloper: "become an intelligent",
@@ -194,7 +202,8 @@ const data = [
     lastName: "Mahat",
     title: "Junior Web Developer",
     nationality: "Nepalese",
-    src: "Sandhya.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Sandhya.jpg",
     alt: "Sandhya",
     skills: [
       "HTML5",
@@ -219,7 +228,8 @@ const data = [
     lastName: "Alabi",
     title: "Developer",
     nationality: "Nigeria",
-    src: "Olujuwon.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Sandhya.jpg",
     alt: "Olujuwon Ayoseyi",
     skills: [
       "Javascript",
@@ -246,7 +256,8 @@ const data = [
     lastName: "Dang",
     title: "Trainee",
     nationality: "Vietnam",
-    src: "Viet.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Viet.jpg",
     alt: "Quoc Viet Dang",
     skills: ["HTML", "CSS", "JavaScript"],
     whySofterDeveloper: "I love web development ",
@@ -260,10 +271,10 @@ const data = [
     lastName: "Bidari",
     title: "Junior Developer",
     nationality: "Nepalese",
-    src: "Jaya.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Jaya.jpg",
     alt: "I bet,Jaya is here",
     skills: [
-      ,
       "HTML5",
       "CSS3",
       "JavaScript",
@@ -284,7 +295,8 @@ const data = [
     lastName: "Bandaru",
     title: "",
     nationality: "Indian",
-    src: "Sravanthi.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Sravanthi.jpg",
     alt: "Heloooo",
     skills: ["HTML", "CSS", "JAVASCRIPT", " PYTHON"],
     whySofterDeveloper: "TO grab more opportunities",
@@ -300,7 +312,8 @@ const data = [
     lastName: "Varadhan",
     title: "Trainee at Integrify",
     nationality: "Finnish",
-    src: "Packia.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Packia.jpg",
     alt: "",
     skills: ["HTML", "CSS", "Java Script"],
     whySofterDeveloper: "to get a good job",
@@ -314,7 +327,8 @@ const data = [
     lastName: "Hoang",
     title: "dev-wannabe",
     nationality: "Vietnam",
-    src: "Trung.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Trung.jpg",
     alt: "Really, no photo here!",
     skills: [""],
     whySofterDeveloper: "Why not ?!",
@@ -329,7 +343,8 @@ const data = [
     lastName: "Hamamdjian",
     title: "AD, Web Developer",
     nationality: "Finnish",
-    src: "Christian.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Christian.jpg",
     alt: "christian_hamamdjian",
     skills: ["Graphic design", "HTML5", "CSS3", "JavaScript", "Wordpress"],
     whySofterDeveloper:
@@ -345,7 +360,8 @@ const data = [
     lastName: "Khan",
     title: "Trainee Web Developer",
     nationality: "Slovak",
-    src: "Katarina.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Katarina.jpg",
     alt: "Katarina",
     skills: ["HTML", "CSS", "JavaScript", "Python"],
     whySofterDeveloper: "For brain activity",
@@ -359,7 +375,8 @@ const data = [
     lastName: "Leung",
     title: "Trainee Web Developer",
     nationality: "Hong Kong",
-    src: "Ben.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Ben.jpg",
     alt: "poktikbenjamin.jpg",
     skills: ["JavaScript", "CSS", "HTML", "Java", "Business Development"],
     whySofterDeveloper:
@@ -377,7 +394,8 @@ const data = [
     lastName: "Rahmane",
     title: "Trainee",
     nationality: "Latvian",
-    src: "Dita.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Dita.jpg",
     alt: "Dita",
     skills: ["HTML", "CSS", "Javascript", "jQuery"],
     whySofterDeveloper:
@@ -393,7 +411,8 @@ const data = [
     lastName: "Le",
     title: "Student",
     nationality: "Vietnam",
-    src: "Niko.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Niko.jpg",
     alt: "Niko",
     skills: ["SASS", "Javascript", "React", "Redux", "Java", "SQL"],
     whySofterDeveloper: "Because I like coding",
@@ -407,7 +426,8 @@ const data = [
     lastName: "Truong",
     title: "Trainee",
     nationality: "Vietnam",
-    src: "Hai.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Hai.jpg",
     Alt: "happy ximbong",
     skills: ["Javascript", "Java", "Linear Algebra", "Discrete Maths"],
     whySofterDeveloper: "SW developer title is cool to have",
@@ -421,8 +441,9 @@ const data = [
     lastName: "Nguyen",
     title: "Integrify Trainee",
     nationality: "Vietnam",
-    src: "Phuoc.jpg",
-    Alt: "[archive + intellect]",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Phuoc.jpg",
+    alt: "[archive + intellect]",
     skills: ["HTML/CSS", "JavaScript", "React.js", "Java"],
     whySofterDeveloper: "Progressive work environment",
     longTermVision: "Full-stack developer/Data scientist",
@@ -436,7 +457,8 @@ const data = [
     lastName: "Zheng",
     title: "Backend-developer/DevOps",
     nationality: "China",
-    src: "Andrew.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677597/Andrew.jpg",
     alt: "Andrew Zheng",
     skills: ["HTML", "CSS", "JavaScript", "Node.js", "Python", "Mongodb"],
     whySofterDeveloper: "",
@@ -450,7 +472,8 @@ const data = [
     lastName: "Jafar",
     title: "Integrify Trainee",
     nationality: "Iran",
-    src: "Shora.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Shora.jpg",
     alt: "shora",
     skills: ["HTML", "CSS", "JavaScript"],
     whySofterDeveloper: "Enables me to build a decent and stable career",
@@ -464,7 +487,8 @@ const data = [
     lastName: "Mitic",
     title: "Junior Developer",
     nationality: "Serbian",
-    src: "Bojan.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Bojan.jpg",
     alt: "bojan",
     skills: [
       "HTML",
@@ -487,7 +511,8 @@ const data = [
     lastName: "Le",
     title: "trainee",
     nationality: "Vietnamese",
-    src: "Quynh.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Quynh.jpg",
     alt: "quynh",
     skills: ["HTML", "CSS", "JavaScript"],
     whySofterDeveloper: "",
@@ -501,7 +526,8 @@ const data = [
     lastName: "Rana",
     title: "Front-end Web developer Trainee",
     nationality: "Indian",
-    src: "Aditya Rana.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677597/Aditya_Rana.jpg",
     alt: "Mypic",
     skills: ["HTML5", "CSS3", "SASS", "Bootstrap", "javascript", "jquery"],
     whySofterDeveloper: "I am passionate about the user interfaces",
@@ -516,7 +542,8 @@ const data = [
     lastName: "Rahman",
     title: "Trainee Web Developer",
     nationality: "Bangladesh",
-    src: "Saidur.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Saidur.jpg",
     alt: "My Image",
     skills: ["HTML", "CSS", "Bootstrap", "JavaScript", "React", "PHP", "MySQL"],
     whySofterDeveloper:
@@ -531,7 +558,8 @@ const data = [
     lastName: "Nghiem",
     title: "Integrify Trainee",
     nationality: "Vietnam",
-    src: "Long.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Long.jpg",
     Alt: "long avatar",
     skills: ["JavaScript", "Photoshop"],
     whySofterDeveloper: "Technology motivates me",
@@ -545,7 +573,8 @@ const data = [
     lastName: "Amtya",
     title: "Trainee",
     nationality: "Nepalese",
-    src: "Rojak.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Rojak.jpg",
     alt: "rojak",
     skills: ["HTML", "CSS", "JS"],
     whySofterDeveloper: "Satisfaction probably",
@@ -560,7 +589,8 @@ const data = [
     lastName: "Akbar",
     title: "Web Developer Trainee",
     nationality: "Pakistani/Finnish",
-    src: "Yasir.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Yasir.jpg",
     alt: "Yasir",
     skills: ["Html", "Css", "Bootstrap", "Wordpress", "JavaScript", "Jquery"],
     whySofterDeveloper:
@@ -575,7 +605,8 @@ const data = [
     lastName: "Mujawar",
     title: "Junior Front-end Developer",
     nationality: "Indian",
-    src: "Arifa.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Arifa.jpg",
     alt: "arifa",
     skills: [
       "HTML5",
@@ -604,7 +635,8 @@ const data = [
     lastName: "Idrissi Akhelij",
     title: "Trainee at Integrify",
     nationality: "Moroccan",
-    src: "Mouhssine.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677599/Mouhssine.jpg",
     alt: "mouhssine",
     skills: ["CSS", "HTML5", "JavaScript"],
     whySofterDeveloper: "because it is my passion",
@@ -619,7 +651,8 @@ const data = [
     lastName: "Bakos",
     title: "Trainee",
     nationality: "Hungarian",
-    src: "Zsuzsanna.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677600/Zsuzsanna.jpg",
     alt: "Zsuzsanna Bakos",
     skills: ["HTML", "CSS", "JavaScript", "Bootstrap", "AutoCad 3D"],
     whySofterDeveloper:
@@ -634,7 +667,8 @@ const data = [
     firstName: "Khanh",
     lastName: "Dang",
     nationality: "Vietnam",
-    src: "Khanh.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677598/Khanh.jpg",
     alt: "Khanh Dang",
     skills: ["HTML", "CSS", "Javascript", "React", "Node", "MongoDB", "SQL"],
     whySofterDeveloper: "Feel good when code works",
@@ -649,7 +683,8 @@ const data = [
     lastName: "Muleta",
     title: "Developer and Partnerships Lead",
     nationality: "Ethiopian",
-    src: "Abdi.jpg",
+    src:
+      "https://res.cloudinary.com/ximbong91023/image/upload/v1532677597/Abdi.jpg",
     alt: "Abdi Muleta",
     skills: ["HTML5", "CSS3", "Javascript", "Python", "R", "Photoshop"],
     whySofterDeveloper:
