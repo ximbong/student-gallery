@@ -16,7 +16,7 @@ class App extends Component {
     };
   }
   componentDidMount = () => {
-    const baseUrl = "https://student-gallery.herokuapp.com/data";
+    const baseUrl = "/data";
     fetch(baseUrl)
       .then(res => res.json())
       .then(res =>

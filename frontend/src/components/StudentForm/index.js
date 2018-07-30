@@ -47,7 +47,7 @@ class StudentForm extends Component {
     e.preventDefault();
 
     const { skills, redirect, ...data } = this.state;
-    const url = "https://student-gallery.herokuapp.com/new";
+    const url = "/new";
 
     const formData = new FormData();
     for (let name in data) {
