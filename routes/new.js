@@ -43,7 +43,7 @@ router.post("/", upload.single("image"), (req, res) => {
       req.file.path,
       { public_id: imageName },
       function(error, result) {
-        src = result.url;
+        src = result.secure_url;
 
         const student = {
           firstName,
