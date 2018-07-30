@@ -2,9 +2,15 @@ const express = require("express"),
   router = express.Router(),
   multer = require("multer"),
   cloudinary = require("cloudinary"),
+  key = require("./config/key"),
   Student = require("../models/student");
 
 //cloudinary config here
+cloudinary.config({
+  cloud_name: "ximbong91023",
+  api_key: key.api_key,
+  api_secret: key.api_secret
+});
 
 const upload = multer({ dest: "../public/uploads" });
 

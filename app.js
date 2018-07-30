@@ -3,10 +3,13 @@ const express = require("express"),
   multer = require("multer"),
   Student = require("./models/student"),
   path = require("path"),
-  mongoDB = "mongodb://127.0.0.1/student-gallery",
+  key = require("./config/key"),
   app = express();
 
 const uploadRoutes = require("./routes/new");
+var mongoDB = `mongodb://${key.mLab_ID}:${
+  key.mLab_pw
+}@ds257241.mlab.com:57241/student-gallery`;
 
 mongoose.connect(mongoDB);
 
