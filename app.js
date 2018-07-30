@@ -13,8 +13,6 @@ var mongoDB = `mongodb://${key.mLab_ID}:${
 
 mongoose.connect(mongoDB);
 
-app.set("port", process.env.PORT || 3000);
-
 // //Initialize data
 // const { getData } = require("./data");
 // const data = getData();
@@ -48,4 +46,6 @@ app.get("/data", (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log("Example app listening on port 3000!"));
+var port = process.env.port || 3000;
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
