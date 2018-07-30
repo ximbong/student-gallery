@@ -13,6 +13,8 @@ var mongoDB = `mongodb://${key.mLab_ID}:${
 
 mongoose.connect(mongoDB);
 
+app.set("port", process.env.PORT || 3000);
+
 // //Initialize data
 // const { getData } = require("./data");
 // const data = getData();
