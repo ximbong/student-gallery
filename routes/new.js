@@ -12,7 +12,7 @@ cloudinary.config({
   api_secret: key.api_secret
 });
 
-const upload = multer({ dest: "../public/uploads" });
+const upload = multer({ dest: "../tmp/uploads" });
 
 //handle post
 router.post("/", upload.single("image"), (req, res) => {
