@@ -2,7 +2,7 @@ const express = require("express"),
   router = express.Router(),
   multer = require("multer"),
   cloudinary = require("cloudinary"),
-  key = require("./config/key"),
+  key = require("../config/key"),
   Student = require("../models/student");
 
 //cloudinary config here
