@@ -24,18 +24,10 @@ mongoose.connect(mongoDB);
 //   }
 // });
 
-// In development
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
-
 // In production
-app.use(express.static(path.join(__dirname, "./frontend/build")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "./frontend/build")));
+}
 
 // Config Routes
 app.use("/new", uploadRoutes);
@@ -46,6 +38,6 @@ app.get("/data", (req, res) => {
   });
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5000;
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
