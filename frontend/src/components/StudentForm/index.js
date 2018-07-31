@@ -12,12 +12,12 @@ class StudentForm extends Component {
       title: "",
       nationality: "",
       skills: "",
-      image: null,
       whySofterDeveloper: "",
       longTermVision: "",
       motivatesMe: "",
       favoriteQuote: "",
       joinedOn: "",
+      image: null,
       imagePreviewer: null,
       redirect: false
     };
@@ -47,7 +47,6 @@ class StudentForm extends Component {
     e.preventDefault();
 
     const { skills, redirect, ...data } = this.state;
-    const url = "/new";
 
     const formData = new FormData();
     for (let name in data) {
@@ -55,10 +54,9 @@ class StudentForm extends Component {
     }
 
     const skillsArray = JSON.stringify(skills.split(","));
-
     formData.append("skills", skillsArray);
 
-    fetch(url, {
+    fetch("/new", {
       method: "POST",
       body: formData
     }).then(res => {

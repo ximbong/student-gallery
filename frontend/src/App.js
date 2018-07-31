@@ -16,8 +16,7 @@ class App extends Component {
     };
   }
   componentDidMount = () => {
-    const baseUrl = "/data";
-    fetch(baseUrl)
+    fetch("/data")
       .then(res => res.json())
       .then(res =>
         this.setState({
@@ -25,6 +24,7 @@ class App extends Component {
         })
       );
   };
+
   getDataFromName = name => {
     const data = this.state.data;
 
@@ -34,10 +34,26 @@ class App extends Component {
     });
   };
 
+  getNewItem = (index, step) => {
+    const data = this.state.data;
+    let newItemIndex;
+
+
+    if (step === 1) {
+      newItemIndex = index === (data.length - 1) ? 0 : index + 1;
+    } else {
+      newItemIndex = index === 0 ? data.length - 1 : index - 1;
+    }
+    return {
+      data: data[newItemIndex],
+      index: newItemIndex
+    };
+  };
+
   render() {
     const data = this.state.data;
 
-    const ItemArray = data.map((e, i) => <Item data={e} key={i} />);
+    const ItemArray = data.map((e, i) => <Item data={e} index={i} key={i} />);
     const ItemList = <div className="itemList">{ItemArray}</div>;
 
     return (
@@ -49,9 +65,13 @@ class App extends Component {
           <Route path="/new" component={StudentForm} />
 
           <Route
-            path="/view/:name"
+            path="/view/:name/:index"
             render={props => (
-              <Displayer {...props} getDataFromName={this.getDataFromName} />
+              <Displayer
+                {...props}
+                getDataFromName={this.getDataFromName}
+                getNewItem={this.getNewItem}
+              />
             )}
           />
         </div>
