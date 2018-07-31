@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import "font-awesome/css/font-awesome.min.css";
 
 import defaultImage from "../../assets/integrify-cartoon.png";
 
@@ -8,8 +10,19 @@ class Displayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showImage: false
+      showImage: false,
+      nextPersonFullName: "",
+      nextPersonIndex: ""
     };
+  }
+
+  componentDidUpdate() {
+    if (this.state.nextPersonFullName) {
+      this.setState({
+        nextPersonFullName: "",
+        nextPersonIndex: ""
+      });
+    }
   }
 
   handleshowImage = () => {
@@ -18,11 +31,24 @@ class Displayer extends Component {
     });
   };
 
+  showNewPerson = (currentIndex, step) => {
+    const { data, index } = this.props.getNewItem(currentIndex, step);
+
+    const fullName = data.firstName + data.lastName;
+
+    this.setState({
+      nextPersonFullName: fullName,
+      nextPersonIndex: index
+    });
+  };
   render() {
-    const showImage = this.state.showImage;
+    const { nextPersonFullName, nextPersonIndex, showImage } = this.state;
 
     const nameParam = this.props.match.params.name;
     const personData = this.props.getDataFromName(nameParam);
+    const currentIndex = parseInt(this.props.match.params.index, 10);
+
+    const showNextPerson = !!nextPersonFullName; //redirect condition
 
     const {
       firstName,
@@ -88,11 +114,24 @@ class Displayer extends Component {
 
     return (
       <div className="displayer">
-        {!showImage ? (
-          <img src={src ? src : defaultImage} alt={alt} />
-        ) : (
-          Details
+        {showNextPerson && (
+          <Redirect to={`/view/${nextPersonFullName}/${nextPersonIndex}`} />
         )}
+        <div className="details-div">
+          <i
+            className="fa fa-arrow-left arrow-left"
+            onClick={() => this.showNewPerson(currentIndex, -1)}
+          />
+          {!showImage ? (
+            <img src={src ? src : defaultImage} alt={alt} />
+          ) : (
+            Details
+          )}
+          <i
+            className="fa fa-arrow-right arrow-right"
+            onClick={() => this.showNewPerson(currentIndex, 1)}
+          />
+        </div>
         <div className="showImage" onClick={this.handleshowImage}>
           {toggleInfo}
         </div>
