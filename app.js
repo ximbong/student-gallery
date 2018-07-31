@@ -24,10 +24,8 @@ mongoose.connect(mongoDB);
 //   }
 // });
 
-// In production
-if (process.env.NODE_ENV === "production") {
+// Serve React app
   app.use(express.static(path.join(__dirname, "./frontend/build")));
-}
 
 // Config Routes
 app.use("/new", uploadRoutes);
