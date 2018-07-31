@@ -32,12 +32,11 @@ router.post("/", upload.single("image"), (req, res) => {
   const skillsArray = JSON.parse(skills);
 
   let src = "";
-  let alt = "";
+  let alt = firstName;
 
   if (req.file) {
     //handle image name and alt
-    imageName = `${firstName}${lastName}`;
-    alt = firstName;
+    let imageName = `${firstName}${lastName}`;
 
     cloudinary.v2.uploader.upload(
       req.file.path,
