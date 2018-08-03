@@ -48,24 +48,32 @@ class StudentForm extends Component {
 
     const { skills, redirect, ...data } = this.state;
 
-    const formData = new FormData();
-    for (let name in data) {
-      formData.append(name, data[name]);
-    }
-
-    const skillsArray = JSON.stringify(skills.split(","));
-    formData.append("skills", skillsArray);
-
-    fetch("/new", {
-      method: "POST",
-      body: formData
-    }).then(res => {
-      if (res.status === 200) {
-        this.setState({
-          redirect: true
-        });
+    if (data.firstName.trim() && data.lastName.trim()) {
+      const formData = new FormData();
+      for (let name in data) {
+        formData.append(name, data[name]);
       }
-    });
+
+      const skillsArray = JSON.stringify(skills.split(","));
+      formData.append("skills", skillsArray);
+
+      fetch("/new", {
+        method: "POST",
+        body: formData
+      }).then(res => {
+        if (res.status === 200) {
+          this.setState({
+            redirect: true
+          });
+        }
+      });
+    } else {
+      alert("Hey, your name can't be empty!");
+      this.setState({
+        firstName: "",
+        lastName: ""
+      });
+    }
   };
 
   render() {
