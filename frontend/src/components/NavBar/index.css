@@ -27,3 +27,14 @@
   background: #383838;
   color: white;
 }
+
+@media (max-width: 650px) {
+  .navBar img {
+    height: 60px;
+  }
+
+  .navBar button {
+    padding: 10px 15px;
+    font-size: 90%;
+  }
+}

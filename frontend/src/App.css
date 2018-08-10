@@ -22,3 +22,29 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
 }
+
+@media (max-width: 1250px) {
+  #root {
+    font-size: 95%;
+  }
+  :root {
+    --side-padding: 5%;
+  }
+  .itemList {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  #root {
+    font-size: 90%;
+  }
+  :root {
+    --side-padding: 5px;
+  }
+  .itemList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 15px;
+  }
+}
