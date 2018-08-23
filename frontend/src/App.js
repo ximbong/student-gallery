@@ -5,6 +5,7 @@ import Item from "./components/Item";
 import NavBar from "./components/NavBar";
 import Displayer from "./components/Displayer";
 import StudentForm from "./components/StudentForm";
+import Loader from "./components/Loader";
 
 import "./App.css";
 
@@ -12,16 +13,20 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      loader: true
     };
   }
   componentDidMount = () => {
     fetch("/data")
       .then(res => res.json())
       .then(res =>
-        this.setState({
-          data: res
-        })
+        setTimeout(() => {
+          this.setState({
+            data: res,
+            loader: false
+          });
+        }, 2000)
       );
   };
 
@@ -38,12 +43,12 @@ class App extends Component {
     const data = this.state.data;
     let newItemIndex;
 
-
     if (step === 1) {
-      newItemIndex = index === (data.length - 1) ? 0 : index + 1;
+      newItemIndex = index === data.length - 1 ? 0 : index + 1;
     } else {
       newItemIndex = index === 0 ? data.length - 1 : index - 1;
     }
+
     return {
       data: data[newItemIndex],
       index: newItemIndex
@@ -51,12 +56,12 @@ class App extends Component {
   };
 
   render() {
-    const data = this.state.data;
+    const { loader, data } = this.state;
 
     const ItemArray = data.map((e, i) => <Item data={e} index={i} key={i} />);
     const ItemList = <div className="itemList">{ItemArray}</div>;
 
-    return (
+    const PageContent = (
       <Router>
         <div>
           <Route path="/" render={props => <NavBar {...props} />} />
@@ -77,6 +82,8 @@ class App extends Component {
         </div>
       </Router>
     );
+
+    return loader ? <Loader /> : PageContent;
   }
 }
 
