@@ -14,6 +14,14 @@ cloudinary.config({
 
 const upload = multer({ dest: "../tmp/uploads" });
 
+const saveStudent = (student, res) => {
+  const newStudent = new Student(student);
+  newStudent.save(function(err, student) {
+    if (err) return console.error(err);
+    res.sendStatus(200);
+  });
+};
+
 //handle post
 router.post("/", upload.single("image"), (req, res) => {
   const {
@@ -31,8 +39,20 @@ router.post("/", upload.single("image"), (req, res) => {
 
   const skillsArray = JSON.parse(skills);
 
-  let src = "";
-  let alt = firstName;
+  const student = {
+    firstName,
+    lastName,
+    title,
+    nationality,
+    skills: skillsArray,
+    whySofterDeveloper,
+    longTermVision,
+    motivatesMe,
+    favoriteQuote,
+    joinedOn,
+    src: "",
+    alt: firstName
+  };
 
   if (req.file) {
     //handle image name and alt
@@ -42,52 +62,12 @@ router.post("/", upload.single("image"), (req, res) => {
       req.file.path,
       { public_id: imageName },
       function(error, result) {
-        src = result.secure_url;
-
-        const student = {
-          firstName,
-          lastName,
-          title,
-          nationality,
-          skills: skillsArray,
-          whySofterDeveloper,
-          longTermVision,
-          motivatesMe,
-          favoriteQuote,
-          joinedOn,
-          src,
-          alt
-        };
-
-        const newStudent = new Student(student);
-        newStudent.save(function(err, student) {
-          if (err) return console.error(err);
-          res.sendStatus(200);
-        });
+        student.src = result.secure_url;
+        saveStudent(student, res);
       }
     );
   } else {
-    //this code needs to be imporoved
-    const student = {
-      firstName,
-      lastName,
-      title,
-      nationality,
-      skills: skillsArray,
-      whySofterDeveloper,
-      longTermVision,
-      motivatesMe,
-      favoriteQuote,
-      joinedOn,
-      src,
-      alt
-    };
-
-    const newStudent = new Student(student);
-    newStudent.save(function(err, student) {
-      if (err) return console.error(err);
-      res.sendStatus(200);
-    });
+    saveStudent(student, res);
   }
 });
 
